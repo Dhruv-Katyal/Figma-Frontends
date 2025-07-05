@@ -1,0 +1,333 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+body {
+  background: #fff;
+  color: #333;
+}
+
+.main {
+  width: 115%;
+}
+
+.first {
+  background: url('1.jpg') no-repeat center center;
+  background-size: cover;
+  height: 410px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.first h1 {
+  color: white;
+  font-size: 4rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* DropDown List */
+.disp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: rgb(115, 113, 113);
+  font-size: 1.2rem;
+  margin: 100px 50px 0px 50px;
+  border-top: 1px solid rgb(211, 210, 210);;
+  border-bottom: 1px solid rgb(211, 210, 210);
+}
+
+.disp #list{
+  color: rgb(115, 113, 113);
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 8px 20px;
+}
+
+.disp #list option{
+  color: black;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 30px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Empty State */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+
+}
+
+.empty-state img {
+  width: 370px;
+  margin-bottom: 20px;
+}
+
+.empty-state h2 {
+  font-size: 1.8rem;
+  color: #ababab;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.empty-state p {
+  color: #7d7a7a;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.empty-state button {
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  border: none;
+  padding: 10px 50px;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-bottom: 100vh;
+}
+
+/*Pulse Button Styles */
+.pulse-btn {
+  position: relative;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Loading State */
+.pulse-btn.loading {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+}
+
+/* Button text fades out when loading */
+.btn-text {
+  transition: opacity 0.3s ease;
+}
+
+.pulse-btn.loading .btn-text {
+  opacity: 0;
+}
+
+/*  Dot Loader */
+.dot-loader {
+  display: flex;
+  position: absolute;
+  bottom: 23px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 5px;
+}
+
+/* Dot loader only visible during loading */
+.pulse-btn.loading .dot-loader {
+  display: flex;
+}
+
+/* Loader Dots */
+.dot-loader span {
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite ease-in-out;
+  opacity: 0;
+}
+
+/* Show dots while loading */
+.pulse-btn.loading .dot-loader span {
+  opacity: 1;
+}
+
+/* Dot delay for bouncing animation */
+.dot-loader span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dot-loader span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Bouncing Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Product Card */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  border: 1.9px rgb(217, 214, 214) solid;
+  height: 100%;
+  animation: fadeInUp 0.4s ease forwards;
+  margin-bottom: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: 70%;
+  object-fit: contain ;
+  border-radius: 8px;
+}
+
+.card h3 {
+  color: rgb(69, 68, 68);
+  margin: 10px auto;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+
+.card .price {
+  font-weight: bold;
+  color: rgb(56, 55, 55);
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+
+/* Add to Cart */
+.add-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #0b1f3a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color ease;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fullscreen Loader Wrapper */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  /* z-index: 1; Ensures it's on top */
+}
+
+/* Loader Container */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/*  Loader Line Progress Background */
+.loading-line {
+  width: 300px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+/* White Loader Fill (Animated) */
+.loading-fill {
+  height: 100%;
+  width: 100%;
+  background: white;
+  animation: fillProgress 2s ease-out forwards;
+  border-radius: 4px;
+}
+
+/* Keyframe: Progress bar fill */
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Rectangle Grid Loader Animation */
+.rectangle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 10px);
+  justify-content: center;
+}
+
+/* Individual rectangles in loader */
+.rect {
+  width: 10px;
+  height: 15px;
+  background: white;
+  opacity: 0;
+  transform: translateY(10px);
+  border-radius: 50%;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+/* Delay each rectangle */
+.rect:nth-child(1) { animation-delay: 0.3s; }
+.rect:nth-child(2) { animation-delay: 0.5s; }
+.rect:nth-child(3) { animation-delay: 0.7s; }
+.rect:nth-child(4) { animation-delay: 0.9s; }
+.rect:nth-child(5) { animation-delay: 1.1s; }
+.rect:nth-child(6) { animation-delay: 1.3s; }
+
+/* Keyframe: Fade and lift up rectangles */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
